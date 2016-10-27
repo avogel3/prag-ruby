@@ -1,4 +1,4 @@
 10/26/2106
 - `irb` is referred to as a 'read-eval-print loop'
 - `exit` to exit from interactive ruby
-
+- Ruby is referred to as a dynamically typed language. IE - you don't have to specify Stirng, Int, Float, etc
