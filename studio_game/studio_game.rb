@@ -1,11 +1,12 @@
-first_player = "larry"
-first_player_health = 60
-puts "#{first_player}'s health is #{first_player_health * 3}"
-puts "#{first_player}'s health is #{first_player_health.to_f / 9.to_f}"
-puts "#{first_player}'s health is #{first_player_health / 9.0}"
+def time
+  Time.new.strftime("%H:%m:%S")
+end
 
-puts "Players:\n\tLarry\n\tCurly\n\tMoe"
+def say_hello name, health=100
+  "I'm #{name.capitalize} with a health of #{health} as of #{time}."
+end
 
-second_player = "curly"
-third_player = "moe"
-puts "Players: \n\t#{first_player} \n\t#{second_player} \n\t#{third_player}"
+puts say_hello "larry"
+puts say_hello "curly"
+puts say_hello "moe"
+puts say_hello "shemp"

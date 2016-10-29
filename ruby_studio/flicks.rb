@@ -1,10 +1,12 @@
-puts "Mikey loves Goonies!"
-puts "Mikes's favorite modie is Goonies!"
+def weekday
+  current_time = Time.new
+  today = current_time.strftime("%A")
+end
 
-movie = 'Goonies'
-puts 'Mikey\'s favorite movie is #{movie}'
+def movie_listing title, rank=0
+  "#{weekday.upcase}: #{title.capitalize} has a rank of #{rank}."
+end
 
-rank = 10
-puts "#{movie} has a rank of #{rank * 2}" # String interpolation
-
-
+puts movie_listing "Goonies"
+puts movie_listing "Ghostbusters"
+puts movie_listing "Goldfinger"
