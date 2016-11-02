@@ -5,3 +5,6 @@
 - attr_reader :title genereates the .title method which is similar to get_title
 - attr_writer :title generates the .title= methods which is similar to set_title
 - att_accesor :title generate both a getter and a setter for title
+
+Arrays
+- muppets = ["kermit", "fozzie", "gonzo"] ==== muppets = %w(kermit fozzie gonzo)

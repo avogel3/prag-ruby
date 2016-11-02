@@ -30,18 +30,15 @@ class Movie
 end
 
 movie1 = Movie.new("goonies", 10)
-puts movie1
 
 movie2 = Movie.new("ghostbusters", 9)
-movie2.thumbs_down
-puts movie2
 
 movie3 = Movie.new("goldfinger", 8)
-puts movie3
-puts movie3.title
 
-movie1.title = "Goonies!"
-puts movie1.title
-puts movie1.rank
+movies = [movie1, movie2, movie3]
+movies.to_s
 
-puts movie1.normalize_rank
+movies.each do |m|
+  m.thumbs_up
+  puts m
+end
