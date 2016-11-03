@@ -1,7 +1,7 @@
 class Movie
   attr_accessor :title, :rank #attr_reader :title, :rank, attr_writer :title
 
-  def initialize title, rank
+  def initialize title, rank=0
     @title = title.capitalize
     @rank = rank 
     "Created a movie object with title #{title} and rank #{rank}" 
