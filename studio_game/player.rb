@@ -21,6 +21,10 @@ class Player
     @health + @name.chars.count
   end
 
+    def strong?
+        @health > 100
+    end
+
   def to_s
     "I'm #{@name} with a score of #{score}."
   end

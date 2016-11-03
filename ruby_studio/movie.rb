@@ -19,13 +19,21 @@ class Movie
     @rank = @rank - 1
   end
  
+  def hit?
+    @rank >= 10
+  end
+    
+  def status
+    hit? ? 'Hit' : 'Flop'
+  end
+
   def listing
     "#{@title} has a rank of #{@rank}"
   end
 
   # by calling puts Movie, ruby automatically looks for the ot_s to 'convet objec to string
   def to_s
-    "#{@title} has a rank of #{rank}"
+    "#{@title} has a rank of #{rank} (#{status})"
   end
 end
 
