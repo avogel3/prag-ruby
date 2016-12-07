@@ -12,6 +12,10 @@ class Player
     puts "#{name} got w00ted!"
   end
 
+  def <=>(other)
+    other.score <=> score
+  end
+
   def blam
     @health = @health - 10
     puts "#{name} got blammed!"

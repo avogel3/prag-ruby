@@ -31,6 +31,10 @@ class Movie
     "#{@title} has a rank of #{@rank}"
   end
 
+  def <=>(other_movie)
+    other_movie.rank <=> @rank
+  end
+
   # by calling puts Movie, ruby automatically looks for the ot_s to 'convet objec to string
   def to_s
     "#{@title} has a rank of #{rank} (#{status})"

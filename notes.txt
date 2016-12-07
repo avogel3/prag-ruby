@@ -8,3 +8,6 @@
 
 Arrays
 - muppets = ["kermit", "fozzie", "gonzo"] ==== muppets = %w(kermit fozzie gonzo)
+
+Iterators
+`1.upto(10) do { code_huuurr }`
