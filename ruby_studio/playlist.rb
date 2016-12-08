@@ -1,39 +1,45 @@
 require_relative 'movie'
 require_relative 'waldorf_and_statler'
+require_relative 'snack_bar'
 
 class Playlist
- def initialize(name)
+  def initialize(name)
     @name = name
     @movies = []
- end
+  end
 
- def add_movie movie
+  def add_movie movie
     @movies << movie
- end
+  end
 
- def play(viewings)
-     puts "#{@name}'s playlist"
-     puts @movies
+  def play(viewings)
+    puts "#{@name}'s playlist"
+    puts @movies
 
-      1.upto(viewings) do |count|
-        puts "\nViewing #{count}"
-        @movies.each do |m|
-          WaldorfAndStatler.review(m)
-           puts m
-        end
+    snacks = SnackBar::SNACKS
+    puts "\nThere are #{snacks.size} snacks available in the snack bar"
+    snacks.each do |snack|
+      puts "#{snack.name} has #{snack.carbs} carbs."
+    end
+
+    1.upto(viewings) do |count|
+      puts "\nViewing #{count}"
+      @movies.each do |m|
+        WaldorfAndStatler.review(m)
+        snack = SnackBar.random
+        puts "#{m.title} led to #{snack.carbs} #{snack.name} carbs being consumed"
+        puts m
       end
- end
+    end
+  end
 
-def print_stats
-  puts "\n#{@name}'s Stats"
-  hits, flops = @movies.partition { |movie| movie.hit? }
-  puts "\nHits:"
-  puts hits.sort
+  def print_stats
+    puts "\n#{@name}'s Stats"
+    hits, flops = @movies.partition { |movie| movie.hit? }
+    puts "\nHits:"
+    puts hits.sort
 
-  puts "\nFlops:"
-  puts flops.sort
-
-
-end
-
+    puts "\nFlops:"
+    puts flops.sort
+  end
 end
