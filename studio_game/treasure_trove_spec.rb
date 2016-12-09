@@ -47,4 +47,5 @@ describe TreasureTrove do
       treasure = TreasureTrove.random
       expect(TreasureTrove::TREASURES).to include(treasure)
     end
+  
 end

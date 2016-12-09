@@ -11,3 +11,6 @@ Arrays
 
 Iterators
 `1.upto(10) do { code_huuurr }`
+
+Hashes
+Called dictionary, map or associative array. 

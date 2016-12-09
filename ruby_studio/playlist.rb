@@ -16,6 +16,7 @@ class Playlist
     puts "#{@name}'s playlist"
     puts @movies
 
+
     snacks = SnackBar::SNACKS
     puts "\nThere are #{snacks.size} snacks available in the snack bar"
     snacks.each do |snack|
@@ -27,15 +28,30 @@ class Playlist
       @movies.each do |m|
         WaldorfAndStatler.review(m)
         snack = SnackBar.random
-        puts "#{m.title} led to #{snack.carbs} #{snack.name} carbs being consumed"
+        m.ate_snack(snack)
         puts m
       end
     end
   end
 
-  def print_stats
+  def total_carbs_consumed
+    @movies.reduce(0) do |sum, movie| 
+      sum + movie.carbs_consumed
+    end
+  end
+  
+  def print_stats 
     puts "\n#{@name}'s Stats"
+    
+    puts "#{total_carbs_consumed} total carbs consumed"
+
+    @movies.sort.each do |movie|
+      puts "\n#{movie.title}'s snack totals:"
+      puts "\n#{movie.carbs_consumed} grand total carbs."
+    end
+    
     hits, flops = @movies.partition { |movie| movie.hit? }
+    
     puts "\nHits:"
     puts hits.sort
 
