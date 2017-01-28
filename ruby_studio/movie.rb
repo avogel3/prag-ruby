@@ -50,6 +50,15 @@ class Movie
   def to_s
     "#{@title} has a rank of #{rank} (#{status})"
   end
+  
+  def each_snack
+    @snack_carbs.each do |name, carbs|
+      snack = Snack.new(name, carbs)
+      yield snack
+    end
+
+  end
+
 end
 
 # if movie is currently being ran directly
