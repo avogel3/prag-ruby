@@ -6,7 +6,15 @@ class Movie
     @rank = rank 
     @snack_carbs = Hash.new(0)
   end
+  
+  def to_csv
+    "#{self.title}, #{self.rank}"
+  end
 
+  def self.from_csv(line) 
+    title, rank = line.split(',')
+    Movie.new(title, Integer(rank.to_i))
+  end
 
   def carbs_consumed
     @snack_carbs.values.reduce(0, :+)

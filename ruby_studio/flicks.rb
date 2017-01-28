@@ -4,17 +4,21 @@ movie1 = Movie.new("goonies", 10)
 movie2 = Movie.new("ghostbusters", 9)
 movie3 = Movie.new("goldfinger", 8)
 
-playlist1 = Playlist.new("Kermit")
-playlist1.add_movie(movie1)
-playlist1.add_movie(movie2)
-playlist1.add_movie(movie3)
+playlist = Playlist.new("Kermit")
+playlist.load(ARGV.shift || "movies.csv")
 
-playlist1.play(3)
+loop do
+  puts "\nHow many viewings? ('quit' or 'exit' to exit)"
+  answer = gets.chomp.downcase
+  case answer
+    when /^\d+$/
+      playlist.play(answer.to_i)
+    when 'quit', 'exit'
+      playlist.print_stats
+      break
+    else
+      puts "Please enter a number or quit"
+  end
+end
 
-playlist2 = Playlist.new("Fozzie")
-playlist2.add_movie(movie3)
-
-movie4 = Movie.new("gremlins", 15)
-playlist2.add_movie(movie4)
-playlist2.play(3)
-playlist2.print_stats
+playlist.save
