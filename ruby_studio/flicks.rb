@@ -1,4 +1,5 @@
 require_relative 'playlist'
+require_relative 'movie3d'
 
 movie1 = Movie.new("goonies", 10)
 movie2 = Movie.new("ghostbusters", 9)
@@ -6,6 +7,8 @@ movie3 = Movie.new("goldfinger", 8)
 
 playlist = Playlist.new("Kermit")
 playlist.load(ARGV.shift || "movies.csv")
+movie3d = Movie3D.new('glee', 5, 20)
+playlist.add_movie(movie3d)
 
 loop do
   puts "\nHow many viewings? ('quit' or 'exit' to exit)"
