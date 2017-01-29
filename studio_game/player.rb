@@ -1,6 +1,9 @@
+require_relative 'playable'
+
 class Player
-  attr_reader :health
-  attr_accessor :name
+  include Playable
+  
+  attr_accessor :name, :health
 
   def initialize name, health=100
     @name = name.capitalize
@@ -23,32 +26,18 @@ class Player
     @found_treasures.values.reduce(0, :+)
   end
 
-  def w00t
-    @health = @health + 15
-    puts "#{name} got w00ted!"
-  end
-
   def <=>(other)
     other.score <=> score
-  end
-
-  def blam
-    @health = @health - 10
-    puts "#{name} got blammed!"
   end
 
   def score
     @health + points
   end
 
-    def strong?
-        @health > 100
-    end
-
   def to_s
     "I'm #{@name} with health = #{@health}, points = #{points}, and score = #{score}."
   end
-  
+
   def each_found_treasure
     @found_treasures.each do |name, points|
       yield Treasure.new(name, points)
