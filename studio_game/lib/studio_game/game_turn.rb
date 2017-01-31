@@ -4,7 +4,7 @@ require_relative 'treasure_trove'
 
 module GameTurn
     def self.take_turn(player)
-        case Die.new.roll
+        case StudioGame::Die.new.roll
         when 1..2
             player.blam
         when 3..4
